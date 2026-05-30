@@ -11,5 +11,5 @@ async def split_pdf_endpoint(file: UploadFile , start_page: int, end_page: int):
     return StreamingResponse(
             content = output,
             media_type="application/pdf",
-            headers={"Content-Disposition": "attachment; filename=output.pdf"}
+            headers={"Content-Disposition": f"attachment; filename=output.pdf"}
             )
