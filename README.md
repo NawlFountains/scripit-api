@@ -2,7 +2,7 @@
 
 A FastAPI backend that exposes utility scripts as REST endpoints.
 
-🔗 [Live API](https://scripit-production.up.railway.app/docs)
+🔗 [Live API](https://scripit-production.up.railway.app/docs) · [Frontend Repo](https://github.com/NawlFountains/scripit-frontend)
 
 ## Stack
 - FastAPI
