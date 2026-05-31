@@ -2,6 +2,12 @@
 
 A FastAPI backend that exposes utility scripts as REST endpoints.
 
+## Stack
+- FastAPI
+- Python
+- BeautifulSoup4
+- pypdf
+
 ## Run locally
 
 ```bash
