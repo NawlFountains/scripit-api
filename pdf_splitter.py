@@ -4,11 +4,9 @@ from pypdf import PdfReader, PdfWriter
 def split_pdf(file_bytes: bytes, start_page: int, end_page: int):
     reader = PdfReader(io.BytesIO(file_bytes))
     writer = PdfWriter()
-    page_range = range(start_page, end_page + 1)
 
-    for page_num, page in enumerate(reader.pages, 1):
-        if page_num in page_range:
-            writer.add_page(page)
+    for page in reader.pages[start_page - 1:end_page]:  # -1 because pages are 0-indexed
+        writer.add_page(page)
 
     output = io.BytesIO()
     writer.write(output)
