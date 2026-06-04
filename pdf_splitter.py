@@ -1,3 +1,4 @@
+import tempfile
 import io
 from pypdf import PdfReader, PdfWriter
 
@@ -8,11 +9,13 @@ def split_pdf(file_bytes: bytes, start_page: int, end_page: int):
     for page in reader.pages[start_page - 1:end_page]:  # -1 because pages are 0-indexed
         writer.add_page(page)
 
-    output = io.BytesIO()
-    writer.write(output)
-    output.seek(0)
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+    writer.write(tmp)
+    tmp.close()
+
+    del reader, writer, file_bytes
     
-    return output
+    return tmp.name
     
 if __name__ == "__main__":
     import argparse
